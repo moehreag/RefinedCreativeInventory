@@ -1,5 +1,8 @@
 package io.github.darkkronicle.refinedcreativeinventory.hotbars;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.github.darkkronicle.darkkore.config.impl.ConfigObject;
 import io.github.darkkronicle.darkkore.config.options.Option;
 import io.github.darkkronicle.darkkore.config.options.StringOption;
@@ -9,10 +12,6 @@ import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.registry.Registry;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class HotbarProfile implements Saveable {
 
@@ -27,7 +26,7 @@ public class HotbarProfile implements Saveable {
             "item",
             "rci.profileeditor.item",
             "rci.profileeditor.info.item", "minecraft:stone",
-            "rci.option.info.item", string -> Registries.ITEM.containsId(new Identifier(string))
+            "rci.option.info.item", string -> Registries.ITEM.containsId(Identifier.of(string))
     );
 
     public HotbarProfile() {

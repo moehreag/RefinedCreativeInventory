@@ -1,5 +1,10 @@
 package io.github.darkkronicle.refinedcreativeinventory.config;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import io.github.darkkronicle.darkkore.DarkKore;
 import io.github.darkkronicle.darkkore.config.ModConfig;
 import io.github.darkkronicle.darkkore.config.impl.ConfigObject;
@@ -8,11 +13,6 @@ import io.github.darkkronicle.darkkore.config.options.Option;
 import io.github.darkkronicle.darkkore.hotkeys.HotkeyHandler;
 import io.github.darkkronicle.refinedcreativeinventory.hotbars.HotbarHolder;
 import io.github.darkkronicle.refinedcreativeinventory.hotbars.HotbarProfile;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class HotbarConfig extends ModConfig {
 

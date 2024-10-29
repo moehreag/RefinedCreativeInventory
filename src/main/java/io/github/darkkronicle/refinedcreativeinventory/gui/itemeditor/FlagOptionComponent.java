@@ -1,8 +1,11 @@
 package io.github.darkkronicle.refinedcreativeinventory.gui.itemeditor;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 import io.github.darkkronicle.darkkore.config.options.StringOption;
-import io.github.darkkronicle.darkkore.gui.config.StringOptionComponent;
 import io.github.darkkronicle.darkkore.gui.config.TextOptionComponent;
 import io.github.darkkronicle.darkkore.util.FluidText;
 import io.github.darkkronicle.darkkore.util.StringUtil;
@@ -12,10 +15,6 @@ import io.github.darkkronicle.refinedcreativeinventory.items.BasicInventoryItem;
 import io.github.darkkronicle.refinedcreativeinventory.items.ItemFlag;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.stream.Collectors;
 
 public class FlagOptionComponent extends TextOptionComponent<String, StringOption> {
 

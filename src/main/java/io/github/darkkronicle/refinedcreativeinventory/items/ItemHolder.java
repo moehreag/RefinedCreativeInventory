@@ -1,19 +1,19 @@
 package io.github.darkkronicle.refinedcreativeinventory.items;
 
 import java.util.*;
-import java.util.stream.Stream;
 
 import io.github.darkkronicle.refinedcreativeinventory.mixin.ItemGroupAccessor;
 import io.github.darkkronicle.refinedcreativeinventory.tabs.ItemTab;
 import io.github.darkkronicle.refinedcreativeinventory.util.ItemSerializer;
 import lombok.Getter;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.BlockStateComponent;
 import net.minecraft.item.*;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.resource.featuretoggle.FeatureSet;
+import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
-import net.minecraft.util.collection.DefaultedList;
 
 public class ItemHolder {
 
@@ -32,36 +32,14 @@ public class ItemHolder {
 	public void setDefaults() {
 		for (Item item : Registries.ITEM) {
 			getOrCreate(new ItemStack(item));
-			/*List<ItemGroup> groups = Registries.ITEM_GROUP.stream()
-					.filter(group -> group.contains(item.getDefaultStack()))
-					.toList();
-			if (groups.isEmpty()) {
-				getOrCreate(new ItemStack(item));
-			} else {
-				ItemStack stack = item.getDefaultStack();
-				InventoryItem i = getOrCreate(stack);
-				for (ItemGroup group : groups) {
-					i.addGroup(group);
-				}
-				//DefaultedList<ItemStack> stackList = DefaultedList.of();
-				//item.appendStacks(item.getGroup(), stackList);
-				//for (ItemStack stack : stackList) {
-				//	InventoryItem i = getOrCreate(stack);
-				//}
-			}*/
 		}
 		for (int i = 0; i < 15; i++) {
 			ItemStack stack = new ItemStack(Items.LIGHT);
-			NbtCompound nbt = new NbtCompound();
-			NbtCompound blockState = new NbtCompound();
-			blockState.putString("level", String.valueOf(i));
-			nbt.put("BlockStateTag", blockState);
-			stack.setNbt(nbt);
-			stack.setCustomName(Text.literal("§dLight " + i));
+			stack.set(DataComponentTypes.BLOCK_STATE, BlockStateComponent.DEFAULT.with(Properties.LEVEL_15, i));
+			stack.set(DataComponentTypes.CUSTOM_NAME, Text.literal("§dLight " + i));
 			getOrCreate(stack).addFlag(new ItemFlag("custom_light", i * 10));
 		}
 		getOrCreate(new ItemStack(Items.LIGHT)).addFlag(new ItemFlag("custom_light", 150));
-		populateGroups();
 //        Collections.sort(allItems);
 	}
 
@@ -71,12 +49,8 @@ public class ItemHolder {
 				continue;
 			}
 			ItemGroup.Entries entries = (stack, visibility) -> addGroup(stack, group);
-			((ItemGroupAccessor)group).getEntryCollector()
-					.accept(new ItemGroup.DisplayContext(FeatureSet.empty(), true, RegistryWrapper.WrapperLookup.of(Stream.empty())), entries);
-
-			/*for (ItemStack item : group.getDisplayStacks()) {
-				addGroup(item, group);
-			}*/
+			((ItemGroupAccessor) group).getEntryCollector()
+					.accept(new ItemGroup.DisplayContext(FeatureSet.empty(), true, MinecraftClient.getInstance().world.getRegistryManager()), entries);
 		}
 	}
 
@@ -109,6 +83,7 @@ public class ItemHolder {
 	}
 
 	public Map<ItemGroup, List<InventoryItem>> getGroups() {
+		populateGroups();
 		HashMap<ItemGroup, List<InventoryItem>> stacks = new HashMap<>();
 		for (InventoryItem item : ItemHolder.getInstance().getAllItems()) {
 			if (item.getGroups().isEmpty()) {

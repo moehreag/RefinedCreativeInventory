@@ -1,11 +1,11 @@
 package io.github.darkkronicle.refinedcreativeinventory.hotbars.gui;
 
+import java.util.Optional;
+
 import io.github.darkkronicle.darkkore.gui.components.impl.ButtonComponent;
-import io.github.darkkronicle.darkkore.gui.components.impl.TextComponent;
 import io.github.darkkronicle.darkkore.gui.components.transform.ListComponent;
 import io.github.darkkronicle.darkkore.util.Color;
 import io.github.darkkronicle.darkkore.util.FluidText;
-import io.github.darkkronicle.darkkore.util.text.RawText;
 import io.github.darkkronicle.refinedcreativeinventory.gui.InventoryScreen;
 import io.github.darkkronicle.refinedcreativeinventory.gui.components.RefinedItemComponent;
 import io.github.darkkronicle.refinedcreativeinventory.gui.itemeditor.ItemEditorScreen;
@@ -18,8 +18,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-
-import java.util.Optional;
 
 public class SavedHotbarComponent extends ListComponent {
 

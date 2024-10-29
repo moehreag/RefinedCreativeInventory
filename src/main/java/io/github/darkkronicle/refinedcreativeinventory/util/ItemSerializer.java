@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.StringNbtReader;
+import net.minecraft.registry.BuiltinRegistries;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 
@@ -27,7 +28,7 @@ public class ItemSerializer {
 		}
 		StringNbtReader reader = new StringNbtReader(new StringReader(nbt));
 		try {
-			return ItemStack.fromNbt(reader.parseCompound());
+			return ItemStack.fromNbtOrEmpty(BuiltinRegistries.createWrapperLookup(), reader.parseCompound());
 		} catch (CommandSyntaxException e) {
 			return new ItemStack(Items.STONE);
 		}
@@ -38,7 +39,7 @@ public class ItemSerializer {
 			config.set("nbt", Registries.ITEM.getId(stack.getItem()).toString());
 		} else {
 			NbtCompound compound = new NbtCompound();
-			stack.writeNbt(compound);
+			stack.encode(BuiltinRegistries.createWrapperLookup());
 			config.set("nbt", compound.toString());
 		}
 	}
@@ -53,13 +54,7 @@ public class ItemSerializer {
 		if (one.getCount() != two.getCount()) {
 			return false;
 		}
-		if (one.hasNbt() != two.hasNbt()) {
-			return false;
-		}
-		if (!one.hasNbt() && !two.hasNbt()) {
-			return true;
-		}
-		return one.getNbt().equals(two.getNbt());
+		return ItemStack.areEqual(one, two);
 	}
 
 }

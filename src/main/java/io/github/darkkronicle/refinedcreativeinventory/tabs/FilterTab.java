@@ -1,5 +1,9 @@
 package io.github.darkkronicle.refinedcreativeinventory.tabs;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Function;
+
 import io.github.darkkronicle.darkkore.gui.components.BasicComponent;
 import io.github.darkkronicle.darkkore.gui.components.Component;
 import io.github.darkkronicle.darkkore.gui.components.impl.ItemComponent;
@@ -16,11 +20,6 @@ import lombok.Setter;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.text.Text;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Function;
-import java.util.function.Supplier;
 
 public class FilterTab implements ItemTab {
 

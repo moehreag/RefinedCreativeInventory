@@ -1,11 +1,12 @@
 package io.github.darkkronicle.refinedcreativeinventory.search;
 
-import io.github.darkkronicle.konstruct.NodeException;
+import java.util.ArrayList;
+import java.util.List;
+
 import io.github.darkkronicle.konstruct.functions.Function;
 import io.github.darkkronicle.konstruct.functions.NamedFunction;
 import io.github.darkkronicle.konstruct.functions.Variable;
 import io.github.darkkronicle.konstruct.nodes.Node;
-import io.github.darkkronicle.konstruct.nodes.RootNode;
 import io.github.darkkronicle.konstruct.parser.IntRange;
 import io.github.darkkronicle.konstruct.parser.NodeProcessor;
 import io.github.darkkronicle.konstruct.parser.ParseContext;
@@ -13,9 +14,6 @@ import io.github.darkkronicle.konstruct.parser.Result;
 import io.github.darkkronicle.konstruct.reader.builder.NodeBuilder;
 import io.github.darkkronicle.konstruct.type.BooleanObject;
 import io.github.darkkronicle.refinedcreativeinventory.items.InventoryItem;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class KonstructSearch implements ItemSearch {
 

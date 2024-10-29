@@ -1,5 +1,8 @@
 package io.github.darkkronicle.refinedcreativeinventory.gui.components;
 
+import java.util.Optional;
+import java.util.function.Predicate;
+
 import io.github.darkkronicle.darkkore.util.Color;
 import io.github.darkkronicle.darkkore.util.PositionedRectangle;
 import io.github.darkkronicle.refinedcreativeinventory.gui.InventoryScreen;
@@ -13,13 +16,9 @@ import lombok.Setter;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.Optional;
-import java.util.function.Predicate;
 
 public class RefinedInventoryItemComponent extends CustomInventoryItemComponent {
 

@@ -1,14 +1,14 @@
 package io.github.darkkronicle.refinedcreativeinventory.tabs;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class TabHolder {
 

@@ -1,7 +1,9 @@
 package io.github.darkkronicle.refinedcreativeinventory.items;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.github.darkkronicle.darkkore.gui.components.Component;
-import io.github.darkkronicle.darkkore.util.Color;
 import io.github.darkkronicle.refinedcreativeinventory.gui.itemeditor.FlagOptionComponent;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,9 +11,6 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class BasicInventoryItem implements InventoryItem {
 

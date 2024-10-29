@@ -1,5 +1,8 @@
 package io.github.darkkronicle.refinedcreativeinventory.tabs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.github.darkkronicle.darkkore.gui.components.BasicComponent;
 import io.github.darkkronicle.darkkore.gui.components.Component;
 import io.github.darkkronicle.darkkore.gui.components.impl.ItemComponent;
@@ -10,9 +13,6 @@ import io.github.darkkronicle.refinedcreativeinventory.hotbars.HotbarHolder;
 import io.github.darkkronicle.refinedcreativeinventory.hotbars.gui.HotbarHolderComponent;
 import io.github.darkkronicle.refinedcreativeinventory.items.InventoryItem;
 import net.minecraft.item.Items;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class HotbarTab implements ItemTab {
 

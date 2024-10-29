@@ -1,5 +1,7 @@
 package io.github.darkkronicle.refinedcreativeinventory.gui.components;
 
+import java.util.List;
+
 import io.github.darkkronicle.darkkore.gui.components.impl.ItemComponent;
 import io.github.darkkronicle.darkkore.gui.components.impl.TextComponent;
 import io.github.darkkronicle.darkkore.util.*;
@@ -7,18 +9,17 @@ import io.github.darkkronicle.darkkore.util.text.RawText;
 import io.github.darkkronicle.refinedcreativeinventory.items.InventoryItem;
 import io.github.darkkronicle.refinedcreativeinventory.items.ItemFlag;
 import lombok.Getter;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.item.TooltipContext;
-import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.item.Item.TooltipContext;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Items;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
-
-import java.util.List;
 
 public class CustomInventoryItemComponent extends ItemComponent {
 
@@ -37,7 +38,7 @@ public class CustomInventoryItemComponent extends ItemComponent {
         if (getStack() == null) {
             return;
         }
-        for (Text line : getStack().getTooltip(null, TooltipContext.Default.ADVANCED)) {
+        for (Text line : getStack().getTooltip(TooltipContext.DEFAULT, MinecraftClient.getInstance().player, TooltipType.ADVANCED)) {
             if (text == null) {
                 text = new FluidText(line);
             } else {

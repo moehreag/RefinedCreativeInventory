@@ -1,5 +1,8 @@
 package io.github.darkkronicle.refinedcreativeinventory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.github.darkkronicle.darkkore.hotkeys.BasicHotkey;
 import io.github.darkkronicle.darkkore.hotkeys.Hotkey;
 import io.github.darkkronicle.darkkore.hotkeys.HotkeyHandler;
@@ -16,9 +19,6 @@ import io.github.darkkronicle.refinedcreativeinventory.itemselector.ItemSwitcher
 import io.github.darkkronicle.refinedcreativeinventory.util.ClientUtil;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.world.GameMode;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class InitHandler implements Initializer {
 

@@ -1,6 +1,11 @@
 package io.github.darkkronicle.refinedcreativeinventory.config;
 
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import io.github.darkkronicle.darkkore.DarkKore;
 import io.github.darkkronicle.darkkore.config.ModConfig;
 import io.github.darkkronicle.darkkore.config.impl.ConfigObject;
@@ -10,11 +15,6 @@ import io.github.darkkronicle.refinedcreativeinventory.items.ItemHolder;
 import io.github.darkkronicle.refinedcreativeinventory.tabs.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class TabsConfig extends ModConfig {
 
@@ -92,15 +92,15 @@ public class TabsConfig extends ModConfig {
             tabs.add(tab);
         }
         config.close();
-        if (tabs.size() > 0) {
+        if (!tabs.isEmpty()) {
             for (CustomTab tab : tabs) {
                 TabHolder.getInstance().addTab(tab);
             }
-            TabHolder.getInstance().addTab(new InventoryTab());
-            TabHolder.getInstance().addTab(new HotbarTab());
         } else {
             ItemHolder.getInstance().setDefaults();
         }
+        TabHolder.getInstance().addTab(new InventoryTab());
+        TabHolder.getInstance().addTab(new HotbarTab());
     }
 
     @Override

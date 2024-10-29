@@ -1,10 +1,10 @@
 package io.github.darkkronicle.refinedcreativeinventory.items;
 
-import lombok.Getter;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import lombok.Getter;
+import org.jetbrains.annotations.NotNull;
 
 public class ItemFlag implements Comparable<ItemFlag> {
 

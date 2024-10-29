@@ -35,7 +35,7 @@ public class HotbarProfileComponent extends ListComponent {
         }
         IconButtonComponent add = new IconButtonComponent(
                 parent,
-                new Identifier(RefinedCreativeInventory.MOD_ID, "textures/gui/icon/add.png"),
+                Identifier.of(RefinedCreativeInventory.MOD_ID, "textures/gui/icon/add.png"),
                 18,
                 18,
                 48,

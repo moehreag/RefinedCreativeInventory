@@ -1,5 +1,9 @@
 package io.github.darkkronicle.refinedcreativeinventory.hotbars;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 import io.github.darkkronicle.darkkore.config.impl.ConfigObject;
 import io.github.darkkronicle.darkkore.config.options.BooleanOption;
 import io.github.darkkronicle.darkkore.config.options.Option;
@@ -10,15 +14,10 @@ import io.github.darkkronicle.darkkore.intialization.profiles.PlayerContextCheck
 import io.github.darkkronicle.refinedcreativeinventory.config.ItemsConfig;
 import io.github.darkkronicle.refinedcreativeinventory.items.InventoryItem;
 import lombok.Getter;
-import lombok.Setter;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import org.lwjgl.glfw.GLFW;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 
 public class SavedHotbar implements Saveable {
 

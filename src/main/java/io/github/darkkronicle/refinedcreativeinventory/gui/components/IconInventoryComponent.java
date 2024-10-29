@@ -1,16 +1,12 @@
 package io.github.darkkronicle.refinedcreativeinventory.gui.components;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import io.github.darkkronicle.darkkore.gui.components.impl.InventoryItemComponent;
 import io.github.darkkronicle.darkkore.util.Color;
 import io.github.darkkronicle.darkkore.util.PositionedRectangle;
-import io.github.darkkronicle.darkkore.util.render.RenderUtil;
 import io.github.darkkronicle.refinedcreativeinventory.gui.InventoryScreen;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
 public class IconInventoryComponent extends RefinedInventoryItemComponent {

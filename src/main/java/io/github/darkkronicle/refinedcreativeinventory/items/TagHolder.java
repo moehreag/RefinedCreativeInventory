@@ -1,15 +1,14 @@
 package io.github.darkkronicle.refinedcreativeinventory.items;
 
+import java.util.*;
+
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.entry.RegistryEntryList;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.entry.RegistryEntryList;
-
-import java.util.*;
 
 public class TagHolder {
 

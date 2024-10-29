@@ -1,5 +1,8 @@
 package io.github.darkkronicle.refinedcreativeinventory.gui.components;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.github.darkkronicle.darkkore.gui.components.Component;
 import io.github.darkkronicle.darkkore.gui.components.transform.ListComponent;
 import io.github.darkkronicle.darkkore.util.Dimensions;
@@ -8,11 +11,7 @@ import io.github.darkkronicle.refinedcreativeinventory.items.InventoryItem;
 import io.github.darkkronicle.refinedcreativeinventory.items.ItemHolder;
 import io.github.darkkronicle.refinedcreativeinventory.search.BasicItemSearch;
 import io.github.darkkronicle.refinedcreativeinventory.search.ItemSearch;
-import io.github.darkkronicle.refinedcreativeinventory.search.KonstructSearch;
 import io.github.darkkronicle.refinedcreativeinventory.tabs.ItemTab;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ItemsComponent extends ListComponent {
 

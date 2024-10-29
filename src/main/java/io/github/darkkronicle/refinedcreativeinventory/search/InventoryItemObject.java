@@ -1,5 +1,8 @@
 package io.github.darkkronicle.refinedcreativeinventory.search;
 
+import java.util.List;
+import java.util.Locale;
+
 import io.github.darkkronicle.konstruct.functions.Function;
 import io.github.darkkronicle.konstruct.functions.ObjectFunction;
 import io.github.darkkronicle.konstruct.nodes.Node;
@@ -13,9 +16,6 @@ import io.github.darkkronicle.refinedcreativeinventory.items.InventoryItem;
 import lombok.Getter;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
-
-import java.util.List;
-import java.util.Locale;
 
 public class InventoryItemObject extends KonstructObject<InventoryItemObject> {
 

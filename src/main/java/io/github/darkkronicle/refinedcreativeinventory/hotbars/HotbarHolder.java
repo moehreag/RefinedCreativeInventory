@@ -1,10 +1,10 @@
 package io.github.darkkronicle.refinedcreativeinventory.hotbars;
 
-import io.github.darkkronicle.darkkore.hotkeys.HotkeyHandler;
-import lombok.Getter;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import io.github.darkkronicle.darkkore.hotkeys.HotkeyHandler;
+import lombok.Getter;
 
 public class HotbarHolder {
 

@@ -43,7 +43,7 @@ public class CustomTab extends FilterTab {
 			"item",
 			"rci.tabeditor.item",
 			"rci.tabeditor.info.item", "minecraft:stone",
-			"rci.optiontype.info.item", string -> Registries.ITEM.containsId(new Identifier(string))
+			"rci.optiontype.info.item", string -> Registries.ITEM.containsId(Identifier.of(string))
 	);
 
 	@Getter
@@ -119,7 +119,7 @@ public class CustomTab extends FilterTab {
 	@Override
 	public BasicComponent getIcon(InventoryScreen parent) {
 		CustomTab tab = this;
-		ItemComponent comp = new ItemComponent(parent, Registries.ITEM.get(new Identifier(item.getValue()))) {
+		ItemComponent comp = new ItemComponent(parent, Registries.ITEM.get(Identifier.of(item.getValue()))) {
 			@Override
 			public boolean mouseClickedImpl(int x, int y, int mouseX, int mouseY, int button) {
 				if (button == 1) {

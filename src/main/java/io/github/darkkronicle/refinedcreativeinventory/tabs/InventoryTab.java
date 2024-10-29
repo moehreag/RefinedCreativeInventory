@@ -1,5 +1,8 @@
 package io.github.darkkronicle.refinedcreativeinventory.tabs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.github.darkkronicle.darkkore.gui.components.BasicComponent;
 import io.github.darkkronicle.darkkore.gui.components.Component;
 import io.github.darkkronicle.darkkore.gui.components.impl.IconButtonComponent;
@@ -23,9 +26,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.util.Identifier;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class InventoryTab implements ItemTab {
 
@@ -64,11 +64,11 @@ public class InventoryTab implements ItemTab {
         rows.setComponentXPad(0);
         rows.addComponent(new TextComponent(screen, StringUtil.translateToText("rci.inventory.inventory")));
         ListComponent other = new ListComponent(screen, -1, -1, false);
-        other.addComponent(new ArmorInventoryComponent(screen, EquipmentSlot.HEAD, new Identifier("textures/" + PlayerScreenHandler.EMPTY_HELMET_SLOT_TEXTURE.getPath() + ".png"), 39).setOutlineColor(InventoryScreen.getSlotOutlineColor()));
-        other.addComponent(new ArmorInventoryComponent(screen, EquipmentSlot.CHEST, new Identifier("textures/" + PlayerScreenHandler.EMPTY_CHESTPLATE_SLOT_TEXTURE.getPath() + ".png"), 38).setOutlineColor(InventoryScreen.getSlotOutlineColor()));
-        other.addComponent(new ArmorInventoryComponent(screen, EquipmentSlot.LEGS, new Identifier("textures/" + PlayerScreenHandler.EMPTY_LEGGINGS_SLOT_TEXTURE.getPath() + ".png"), 37).setOutlineColor(InventoryScreen.getSlotOutlineColor()));
-        other.addComponent(new ArmorInventoryComponent(screen, EquipmentSlot.FEET, new Identifier("textures/" + PlayerScreenHandler.EMPTY_BOOTS_SLOT_TEXTURE.getPath() + ".png"), 36).setOutlineColor(InventoryScreen.getSlotOutlineColor()));
-        other.addComponent(new IconInventoryComponent(screen, new Identifier("textures/" + PlayerScreenHandler.EMPTY_OFFHAND_ARMOR_SLOT.getPath() + ".png"), 40).setOutlineColor(InventoryScreen.getSlotOutlineColor()));
+        other.addComponent(new ArmorInventoryComponent(screen, EquipmentSlot.HEAD, Identifier.of("textures/" + PlayerScreenHandler.EMPTY_HELMET_SLOT_TEXTURE.getPath() + ".png"), 39).setOutlineColor(InventoryScreen.getSlotOutlineColor()));
+        other.addComponent(new ArmorInventoryComponent(screen, EquipmentSlot.CHEST, Identifier.of("textures/" + PlayerScreenHandler.EMPTY_CHESTPLATE_SLOT_TEXTURE.getPath() + ".png"), 38).setOutlineColor(InventoryScreen.getSlotOutlineColor()));
+        other.addComponent(new ArmorInventoryComponent(screen, EquipmentSlot.LEGS, Identifier.of("textures/" + PlayerScreenHandler.EMPTY_LEGGINGS_SLOT_TEXTURE.getPath() + ".png"), 37).setOutlineColor(InventoryScreen.getSlotOutlineColor()));
+        other.addComponent(new ArmorInventoryComponent(screen, EquipmentSlot.FEET, Identifier.of("textures/" + PlayerScreenHandler.EMPTY_BOOTS_SLOT_TEXTURE.getPath() + ".png"), 36).setOutlineColor(InventoryScreen.getSlotOutlineColor()));
+        other.addComponent(new IconInventoryComponent(screen, Identifier.of("textures/" + PlayerScreenHandler.EMPTY_OFFHAND_ARMOR_SLOT.getPath() + ".png"), 40).setOutlineColor(InventoryScreen.getSlotOutlineColor()));
         other.setComponentYPad(0);
         other.setComponentXPad(0);
         rows.addComponent(other);
@@ -85,7 +85,7 @@ public class InventoryTab implements ItemTab {
         }
         IconButtonComponent icon = new IconButtonComponent(
                 screen,
-                new Identifier(RefinedCreativeInventory.MOD_ID, "textures/gui/icon/close.png"),
+                Identifier.of(RefinedCreativeInventory.MOD_ID, "textures/gui/icon/close.png"),
                 18,
                 18,
                 48,

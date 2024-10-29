@@ -1,24 +1,22 @@
 package io.github.darkkronicle.refinedcreativeinventory.itemselector;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
 import io.github.darkkronicle.refinedcreativeinventory.items.BasicInventoryItem;
 import io.github.darkkronicle.refinedcreativeinventory.items.InventoryItem;
 import io.github.darkkronicle.refinedcreativeinventory.items.ItemFlag;
 import io.github.darkkronicle.refinedcreativeinventory.items.ItemHolder;
 import lombok.Getter;
 import lombok.Setter;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.ContainerComponent;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
-import net.minecraft.nbt.NbtList;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.DefaultedList;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 public class ItemSwitcherHandler {
 
@@ -37,31 +35,20 @@ public class ItemSwitcherHandler {
     private List<ItemModifier> modifiers = new ArrayList<>();
 
     private ItemSwitcherHandler() {
-        modifiers.add(new SimpleModifier(new ItemStack(Items.SHULKER_BOX).setCustomName(Text.literal("Fill Shulker")), stack -> {
+        ItemStack icon = new ItemStack(Items.SHULKER_BOX);
+        icon.set(DataComponentTypes.CUSTOM_NAME, Text.literal("Fill Shulker"));
+        modifiers.add(new SimpleModifier(icon, stack -> {
             if (!stack.getItem().canBeNested()) {
                 return stack;
             }
             ItemStack inner = stack.copy();
-            NbtElement tag = inner.getOrCreateNbt().get("tag");
-            if (tag instanceof NbtCompound compound) {
-                compound.remove("BlockEntityTag");
-            }
             inner.setCount(inner.getItem().getMaxCount());
-            NbtCompound innerNbt = inner.getOrCreateNbt();
-            innerNbt.remove("BlockEntityTag");
-            innerNbt.remove("pages");
             ItemStack newStack = new ItemStack(Items.SHULKER_BOX);
-            NbtCompound nbt = newStack.getOrCreateNbt();
-            NbtCompound blockEntity = new NbtCompound();
-            NbtList items = new NbtList();
+            DefaultedList<ItemStack> stacks = DefaultedList.ofSize(27);
             for (int i = 0; i < 27; i++) {
-                NbtCompound item = new NbtCompound();
-                inner.writeNbt(item);
-                item.putInt("Slot", i);
-                items.add(item);
+                stacks.add(inner.copy());
             }
-            blockEntity.put("Items", items);
-            nbt.put("BlockEntityTag", blockEntity);
+            newStack.set(DataComponentTypes.CONTAINER, ContainerComponent.fromStacks(stacks));
             return newStack;
         }));
     }

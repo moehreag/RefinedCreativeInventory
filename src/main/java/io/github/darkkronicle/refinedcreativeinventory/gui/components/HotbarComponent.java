@@ -5,7 +5,6 @@ import io.github.darkkronicle.darkkore.gui.components.transform.ListComponent;
 import io.github.darkkronicle.darkkore.util.Color;
 import io.github.darkkronicle.refinedcreativeinventory.RefinedCreativeInventory;
 import io.github.darkkronicle.refinedcreativeinventory.gui.InventoryScreen;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -20,7 +19,7 @@ public class HotbarComponent extends ListComponent {
         final InventoryScreen inv = parent;
         IconButtonComponent icon = new IconButtonComponent(
                 parent,
-                new Identifier(RefinedCreativeInventory.MOD_ID, "textures/gui/icon/close.png"),
+                Identifier.of(RefinedCreativeInventory.MOD_ID, "textures/gui/icon/close.png"),
                 18,
                 18,
                 48,

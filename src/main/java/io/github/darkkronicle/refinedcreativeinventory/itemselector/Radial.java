@@ -1,5 +1,7 @@
 package io.github.darkkronicle.refinedcreativeinventory.itemselector;
 
+import java.util.Arrays;
+
 import io.github.darkkronicle.darkkore.gui.components.Component;
 import io.github.darkkronicle.darkkore.gui.components.transform.MultiComponent;
 import io.github.darkkronicle.darkkore.gui.components.transform.PositionedComponent;
@@ -9,12 +11,8 @@ import io.github.darkkronicle.darkkore.util.Rectangle;
 import io.github.darkkronicle.darkkore.util.render.RenderUtil;
 import lombok.Getter;
 import lombok.Setter;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.util.math.MatrixStack;
-
-import java.util.Arrays;
 
 public class Radial extends MultiComponent {
 

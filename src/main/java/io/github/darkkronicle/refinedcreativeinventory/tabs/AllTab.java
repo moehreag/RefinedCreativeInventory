@@ -1,5 +1,9 @@
 package io.github.darkkronicle.refinedcreativeinventory.tabs;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import io.github.darkkronicle.darkkore.gui.components.BasicComponent;
 import io.github.darkkronicle.darkkore.gui.components.Component;
 import io.github.darkkronicle.darkkore.gui.components.impl.ItemComponent;
@@ -15,8 +19,6 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.text.Text;
-
-import java.util.*;
 
 public class AllTab implements ItemTab {
 

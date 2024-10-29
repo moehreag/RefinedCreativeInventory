@@ -1,6 +1,14 @@
 package io.github.darkkronicle.refinedcreativeinventory.config;
 
 
+import java.io.*;
+import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import io.github.darkkronicle.darkkore.DarkKore;
@@ -11,10 +19,10 @@ import io.github.darkkronicle.darkkore.config.impl.JsonFileObject;
 import io.github.darkkronicle.darkkore.config.options.Option;
 import io.github.darkkronicle.darkkore.util.FileUtil;
 import io.github.darkkronicle.darkkore.util.JsonUtil;
+import io.github.darkkronicle.refinedcreativeinventory.items.BasicInventoryItem;
 import io.github.darkkronicle.refinedcreativeinventory.items.InventoryItem;
 import io.github.darkkronicle.refinedcreativeinventory.items.ItemFlag;
 import io.github.darkkronicle.refinedcreativeinventory.items.ItemHolder;
-import io.github.darkkronicle.refinedcreativeinventory.items.BasicInventoryItem;
 import io.github.darkkronicle.refinedcreativeinventory.util.ItemSerializer;
 import lombok.Getter;
 import net.minecraft.item.Item;
@@ -22,14 +30,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import org.apache.commons.io.IOUtils;
-
-import java.io.*;
-import java.net.URISyntaxException;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
 
 public class ItemsConfig extends ModConfig {
 

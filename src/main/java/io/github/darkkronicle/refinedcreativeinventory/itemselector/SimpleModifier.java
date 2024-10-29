@@ -1,5 +1,8 @@
 package io.github.darkkronicle.refinedcreativeinventory.itemselector;
 
+import java.util.function.Consumer;
+import java.util.function.Function;
+
 import io.github.darkkronicle.darkkore.gui.components.Component;
 import io.github.darkkronicle.darkkore.gui.components.impl.ItemComponent;
 import io.github.darkkronicle.darkkore.util.Color;
@@ -11,9 +14,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.ItemStack;
-
-import java.util.function.Consumer;
-import java.util.function.Function;
 
 public class SimpleModifier implements ItemModifier {
 

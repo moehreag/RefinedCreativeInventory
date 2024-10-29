@@ -1,5 +1,8 @@
 package io.github.darkkronicle.refinedcreativeinventory.config;
 
+import java.io.File;
+import java.util.List;
+
 import com.google.common.collect.ImmutableList;
 import io.github.darkkronicle.darkkore.config.ModConfig;
 import io.github.darkkronicle.darkkore.config.options.BooleanOption;
@@ -13,9 +16,6 @@ import io.github.darkkronicle.darkkore.util.FileUtil;
 import io.github.darkkronicle.darkkore.util.InputUtil;
 import lombok.Getter;
 import org.lwjgl.glfw.GLFW;
-
-import java.io.File;
-import java.util.List;
 
 public class CreativeInventoryConfig extends ModConfig {
 

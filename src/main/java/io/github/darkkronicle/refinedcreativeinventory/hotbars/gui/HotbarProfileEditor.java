@@ -1,5 +1,8 @@
 package io.github.darkkronicle.refinedcreativeinventory.hotbars.gui;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.github.darkkronicle.darkkore.DarkKore;
 import io.github.darkkronicle.darkkore.config.options.Option;
 import io.github.darkkronicle.darkkore.config.options.OptionSection;
@@ -12,12 +15,7 @@ import io.github.darkkronicle.darkkore.util.StringUtil;
 import io.github.darkkronicle.refinedcreativeinventory.gui.InventoryScreen;
 import io.github.darkkronicle.refinedcreativeinventory.hotbars.HotbarHolder;
 import io.github.darkkronicle.refinedcreativeinventory.hotbars.HotbarProfile;
-import io.github.darkkronicle.refinedcreativeinventory.items.ItemHolder;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.util.Identifier;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class HotbarProfileEditor extends ConfigScreen {
 
@@ -42,7 +40,7 @@ public class HotbarProfileEditor extends ConfigScreen {
             }
             super.tabs = tabs;
         }
-        super.tabs = List.of(Tab.ofOptions(new Identifier(DarkKore.MOD_ID, "main"), "main", profile.getOptions()));
+        super.tabs = List.of(Tab.ofOptions(Identifier.of(DarkKore.MOD_ID, "main"), "main", profile.getOptions()));
         this.profile = profile;
         this.inventory = parent;
         setParent(parent);

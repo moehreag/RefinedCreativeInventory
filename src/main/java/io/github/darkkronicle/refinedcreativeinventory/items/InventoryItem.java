@@ -1,13 +1,13 @@
 package io.github.darkkronicle.refinedcreativeinventory.items;
 
+import java.util.List;
+
 import io.github.darkkronicle.darkkore.gui.components.Component;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
 
 public interface InventoryItem extends Comparable<InventoryItem> {
 
