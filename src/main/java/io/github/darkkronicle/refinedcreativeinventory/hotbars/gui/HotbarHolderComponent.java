@@ -13,8 +13,9 @@ import io.github.darkkronicle.refinedcreativeinventory.hotbars.HotbarProfile;
 import lombok.Getter;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 
 public class HotbarHolderComponent extends ListComponent {
 
@@ -41,7 +42,7 @@ public class HotbarHolderComponent extends ListComponent {
         this.clear();
         profiles.clear();
         for (HotbarProfile profile : holder.getProfiles()) {
-            ItemComponent component = new ItemComponent(parent, new ItemStack(Registry.ITEM.get(new Identifier(profile.getStack().getValue())))) {
+            ItemComponent component = new ItemComponent(parent, new ItemStack(Registries.ITEM.get(new Identifier(profile.getStack().getValue())))) {
                 @Override
                 public boolean mouseClickedImpl(int x, int y, int mouseX, int mouseY, int button) {
                     if (button == 0) {

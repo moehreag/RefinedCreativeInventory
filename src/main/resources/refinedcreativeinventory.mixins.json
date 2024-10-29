@@ -2,13 +2,14 @@
   "required": true,
   "minVersion": "0.8",
   "package": "io.github.darkkronicle.refinedcreativeinventory.mixin",
-  "compatibilityLevel": "JAVA_17",
+  "compatibilityLevel": "JAVA_21",
   "mixins": [
   ],
   "client": [
     "ClientPlayNetworkHandlerMixin",
     "CreativeInventoryMixin",
-    "InventoryScreenMixin"
+    "InventoryScreenMixin",
+    "ItemGroupAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

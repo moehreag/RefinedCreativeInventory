@@ -7,8 +7,9 @@ import io.github.darkkronicle.darkkore.hotkeys.HotkeyHandler;
 import io.github.darkkronicle.darkkore.intialization.Saveable;
 import lombok.Getter;
 import lombok.Setter;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,7 @@ public class HotbarProfile implements Saveable {
             "item",
             "rci.profileeditor.item",
             "rci.profileeditor.info.item", "minecraft:stone",
-            "rci.option.info.item", string -> Registry.ITEM.containsId(new Identifier(string))
+            "rci.option.info.item", string -> Registries.ITEM.containsId(new Identifier(string))
     );
 
     public HotbarProfile() {

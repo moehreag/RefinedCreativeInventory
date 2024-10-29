@@ -28,6 +28,7 @@ import io.github.darkkronicle.refinedcreativeinventory.tabs.TabHolder;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
 import net.minecraft.client.util.math.MatrixStack;
@@ -147,7 +148,7 @@ public class InventoryScreen extends ComponentScreen {
         tabs = new ListComponent(this, 22, -1, true);
         tabs.setTopPad(0);
         if (tab == null) {
-            tab = TabHolder.getInstance().getTabs().get(0);
+            tab = TabHolder.getInstance().getTabs().getFirst();
         }
 
         addComponent(new PositionedComponent(this,
@@ -234,7 +235,7 @@ public class InventoryScreen extends ComponentScreen {
                 StringUtil.translateToText("rci.button.vanilla"),
                 new Color(100, 100, 100, 100),
                 new Color(150, 150, 150, 150), button -> {
-                client.setScreen(new CreativeInventoryScreen(client.player));
+                client.setScreen(new CreativeInventoryScreen(client.player, client.player.networkHandler.getEnabledFeatures(), client.options.getOperatorItemsTab().getValue()));
         });
         vanilla.setLeftPadding(2);
 
@@ -309,11 +310,11 @@ public class InventoryScreen extends ComponentScreen {
     }
 
     @Override
-    public void render(MatrixStack matrices, int mouseX, int mouseY, float partialTicks) {
-        RenderUtil.drawRectangle(matrices, 0, 0, this.width, this.height, getMainBackground().color());
-        renderComponents(matrices, mouseX, mouseY);
+    public void render(DrawContext context, int mouseX, int mouseY, float partialTicks) {
+        RenderUtil.drawRectangle(context, 0, 0, this.width, this.height, getMainBackground().color());
+        renderComponents(context, mouseX, mouseY);
         if (selectedStack != null) {
-            RenderUtil.drawItem(matrices, selectedStack, mouseX - 8, mouseY - 8, true, 50);
+            RenderUtil.drawItem(context, selectedStack, mouseX - 8, mouseY - 8, true, 50);
         }
     }
 

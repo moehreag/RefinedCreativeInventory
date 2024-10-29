@@ -7,6 +7,7 @@ import io.github.darkkronicle.darkkore.util.text.RawText;
 import io.github.darkkronicle.refinedcreativeinventory.items.InventoryItem;
 import io.github.darkkronicle.refinedcreativeinventory.items.ItemFlag;
 import lombok.Getter;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.util.math.MatrixStack;
@@ -49,9 +50,9 @@ public class CustomInventoryItemComponent extends ItemComponent {
         List<ItemGroup> groups = item.getGroups();
         if (!groups.isEmpty()) {
             if (groups.size() == 1) {
-                text.append("\n").append(new RawText("Group: " + groups.get(0).getName(), Style.EMPTY.withColor(Formatting.DARK_GRAY)));
+                text.append("\n").append(new RawText("Group: " + groups.get(0).getDisplayName().getString(), Style.EMPTY.withColor(Formatting.DARK_GRAY)));
             } else {
-                text.append("\n").append(new RawText("Groups: " + String.join(", ", groups.stream().map(ItemGroup::getName).toList()), Style.EMPTY.withColor(Formatting.DARK_GRAY)));
+                text.append("\n").append(new RawText("Groups: " + String.join(", ", groups.stream().map(ItemGroup::getDisplayName).map(Text::getString).toList()), Style.EMPTY.withColor(Formatting.DARK_GRAY)));
             }
         }
         List<Identifier> tags = item.getTags();
@@ -82,7 +83,7 @@ public class CustomInventoryItemComponent extends ItemComponent {
     }
 
     @Override
-    public void postRender(MatrixStack matrices, PositionedRectangle renderBounds, int x, int y, int mouseX, int mouseY) {
+    public void postRender(DrawContext context, PositionedRectangle renderBounds, int x, int y, int mouseX, int mouseY) {
         if (this.isHovered() && hoverComponent != null && getStack() != null && !getStack().getItem().equals(Items.AIR)) {
             y = y + 18;
             Dimensions screen = Dimensions.getScreen();
@@ -93,7 +94,7 @@ public class CustomInventoryItemComponent extends ItemComponent {
             if (x + bounds.width() > screen.getWidth()) {
                 x = screen.getWidth() - bounds.width();
             }
-            hoverComponent.render(matrices, renderBounds, x, y, mouseX, mouseY);
+            hoverComponent.render(context, renderBounds, x, y, mouseX, mouseY);
         }
     }
 }

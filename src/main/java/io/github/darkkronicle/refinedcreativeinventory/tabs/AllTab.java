@@ -54,7 +54,7 @@ public class AllTab implements ItemTab {
             if (o2 == null) {
                 return -1;
             }
-            return o1.getName().compareTo(o2.getName());
+            return o1.getDisplayName().getString().compareTo(o2.getDisplayName().getString());
         }).toList();
         for (ItemGroup group : keys) {
             Text name = group == null ? StringUtil.translateToText("rci.group.other") : group.getDisplayName();

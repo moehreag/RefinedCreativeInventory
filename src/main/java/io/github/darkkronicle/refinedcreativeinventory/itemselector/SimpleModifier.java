@@ -8,9 +8,8 @@ import io.github.darkkronicle.darkkore.util.Rectangle;
 import io.github.darkkronicle.refinedcreativeinventory.gui.InventoryScreen;
 import lombok.Getter;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawableHelper;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 
 import java.util.function.Consumer;
@@ -34,14 +33,14 @@ public class SimpleModifier implements ItemModifier {
     public Component getComponent(Screen parent, Consumer<ItemStack> onClick, ItemStack base) {
         ItemComponent comp = new ItemComponent(parent, icon) {
             @Override
-            public void postRender(MatrixStack matrices, PositionedRectangle renderBounds, int x, int y, int mouseX, int mouseY) {
+            public void postRender(DrawContext context, PositionedRectangle renderBounds, int x, int y, int mouseX, int mouseY) {
                 if (isHovered()) {
-                    matrices.translate(0, 0, 500);
+                    context.getMatrices().translate(0, 0, 500);
                     Rectangle rect = getBoundingBox();
                     int width1 = MinecraftClient.getInstance().textRenderer.getWidth(icon.getName());
-                    DrawableHelper.fill(matrices, x + rect.width() / 2 - width1 / 2 - 2, y - 11, x + rect.width() / 2 + width1 / 2 + 2, y - 1, 0xAA000000);
-                    DrawableHelper.drawCenteredText(matrices, MinecraftClient.getInstance().textRenderer, icon.getName(), x + rect.width() / 2, y - 10, -1);
-                    matrices.translate(0, 0, -500);
+                    context.fill(x + rect.width() / 2 - width1 / 2 - 2, y - 11, x + rect.width() / 2 + width1 / 2 + 2, y - 1, 0xAA000000);
+                    context.drawCenteredTextWithShadow(MinecraftClient.getInstance().textRenderer, icon.getName(), x + rect.width() / 2, y - 10, -1);
+                    context.getMatrices().translate(0, 0, -500);
                 }
             }
 

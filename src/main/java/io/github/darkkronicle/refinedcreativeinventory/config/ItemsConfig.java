@@ -19,8 +19,8 @@ import io.github.darkkronicle.refinedcreativeinventory.util.ItemSerializer;
 import lombok.Getter;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import org.apache.commons.io.IOUtils;
 
 import java.io.*;
@@ -33,7 +33,7 @@ import java.util.Map;
 
 public class ItemsConfig extends ModConfig {
 
-    private final static Item DEFAULT_ITEM = Registry.ITEM.get(Registry.ITEM.getDefaultId());
+    private final static Item DEFAULT_ITEM = Registries.ITEM.get(Registries.ITEM.getDefaultId());
 
     private final static ItemsConfig INSTANCE = new ItemsConfig();
 
@@ -147,7 +147,7 @@ public class ItemsConfig extends ModConfig {
                     }
                     r = r.toLowerCase(Locale.ROOT).strip();
                     Identifier identifier = Identifier.splitOn(r, ':');
-                    Item item = Registry.ITEM.get(identifier);
+                    Item item = Registries.ITEM.get(identifier);
                     if (item == DEFAULT_ITEM) {
                         DarkKore.LOGGER.info("Couldn't find item " + r + " (safe to ignore)");
                         continue;
@@ -210,7 +210,7 @@ public class ItemsConfig extends ModConfig {
                 }
                 value = value.toLowerCase(Locale.ROOT).strip();
                 Identifier identifier = Identifier.splitOn(value, ':');
-                Item item = Registry.ITEM.get(identifier);
+                Item item = Registries.ITEM.get(identifier);
                 if (item == DEFAULT_ITEM) {
                     DarkKore.LOGGER.info("Couldn't find item " + value);
                 }

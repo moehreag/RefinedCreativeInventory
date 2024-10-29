@@ -1,18 +1,18 @@
 package io.github.darkkronicle.refinedcreativeinventory.search;
 
-import io.github.darkkronicle.Konstruct.functions.Function;
-import io.github.darkkronicle.Konstruct.functions.ObjectFunction;
-import io.github.darkkronicle.Konstruct.nodes.Node;
-import io.github.darkkronicle.Konstruct.parser.IntRange;
-import io.github.darkkronicle.Konstruct.parser.ParseContext;
-import io.github.darkkronicle.Konstruct.parser.Result;
-import io.github.darkkronicle.Konstruct.type.BooleanObject;
-import io.github.darkkronicle.Konstruct.type.KonstructObject;
-import io.github.darkkronicle.Konstruct.type.StringObject;
+import io.github.darkkronicle.konstruct.functions.Function;
+import io.github.darkkronicle.konstruct.functions.ObjectFunction;
+import io.github.darkkronicle.konstruct.nodes.Node;
+import io.github.darkkronicle.konstruct.parser.IntRange;
+import io.github.darkkronicle.konstruct.parser.ParseContext;
+import io.github.darkkronicle.konstruct.parser.Result;
+import io.github.darkkronicle.konstruct.type.BooleanObject;
+import io.github.darkkronicle.konstruct.type.KonstructObject;
+import io.github.darkkronicle.konstruct.type.StringObject;
 import io.github.darkkronicle.refinedcreativeinventory.items.InventoryItem;
 import lombok.Getter;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
 
 import java.util.List;
 import java.util.Locale;
@@ -32,7 +32,7 @@ public class InventoryItemObject extends KonstructObject<InventoryItemObject> {
                     if (stack.getName().getString().toLowerCase(Locale.ROOT).contains(name)) {
                         return Result.success(new BooleanObject(true));
                     }
-                    if (Registry.ITEM.getId(stack.getItem()).toString().toLowerCase(Locale.ROOT).contains(name)) {
+                    if (Registries.ITEM.getId(stack.getItem()).toString().toLowerCase(Locale.ROOT).contains(name)) {
                         return Result.success(new BooleanObject(true));
                     }
                     return Result.success(new BooleanObject(false));
@@ -76,7 +76,7 @@ public class InventoryItemObject extends KonstructObject<InventoryItemObject> {
                     Result groupObj = Function.parseArgument(context, input, 0);
                     if (Function.shouldReturn(groupObj)) return groupObj;
                     String group = groupObj.getContent().getString().toLowerCase(Locale.ROOT);
-                    if (self.getItem().getGroups().stream().anyMatch(g -> g.getName().contains(group))) {
+                    if (self.getItem().getGroups().stream().anyMatch(g -> g.getDisplayName().getString().contains(group))) {
                         return Result.success(new BooleanObject(true));
                     }
                     return Result.success(new BooleanObject(false));

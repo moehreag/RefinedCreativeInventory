@@ -73,7 +73,7 @@ public class FilterTab implements ItemTab {
             icon.setOnHoveredConsumer(button -> button.setBackgroundColor(new Color(200, 200, 200, 200)));
             icon.setOnHoveredStoppedConsumer(button -> button.setBackgroundColor(null));
             return icon;
-        }, KonstructSearch.fromString("item.group('" + group.getName() + "') and not(item.flag('hidden'))"), order);
+        }, KonstructSearch.fromString("item.group('" + group.getDisplayName().getString() + "') and not(item.flag('hidden'))"), order);
     }
 
 }

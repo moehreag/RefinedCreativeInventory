@@ -8,7 +8,7 @@ import io.github.darkkronicle.darkkore.util.render.RenderUtil;
 import io.github.darkkronicle.refinedcreativeinventory.gui.InventoryScreen;
 import lombok.Getter;
 import lombok.Setter;
-import net.minecraft.client.gui.DrawableHelper;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
@@ -25,12 +25,11 @@ public class IconInventoryComponent extends RefinedInventoryItemComponent {
     }
 
     @Override
-    public void renderComponent(MatrixStack matrices, PositionedRectangle renderBounds, int x, int y, int mouseX, int mouseY) {
-        super.renderComponent(matrices, renderBounds, x, y, mouseX, mouseY);
+    public void renderComponent(DrawContext ctx, PositionedRectangle renderBounds, int x, int y, int mouseX, int mouseY) {
+        super.renderComponent(ctx, renderBounds, x, y, mouseX, mouseY);
         if (getStack() == null || getStack().isEmpty()) {
             RenderSystem.setShaderColor(shaderColor.red() / 255f, shaderColor.green() / 255f, shaderColor.blue() / 255f, shaderColor.alpha() / 255f);
-            RenderSystem.setShaderTexture(0, icon);
-            DrawableHelper.drawTexture(matrices, x + 1, y + 1, 16, 16, 0, 0, 16, 16, 16, 16);
+            ctx.drawTexture(icon, x + 1, y + 1, 16, 16, 0, 0, 16, 16, 16, 16);
             RenderSystem.setShaderColor(1, 1, 1,1);
         }
     }

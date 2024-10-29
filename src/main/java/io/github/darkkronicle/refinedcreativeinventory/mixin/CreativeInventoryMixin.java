@@ -21,9 +21,9 @@ public abstract class CreativeInventoryMixin extends Screen {
     @Inject(method = "init", at = @At(value = "INVOKE", target = "Lnet/minecraft/screen/PlayerScreenHandler;addListener(Lnet/minecraft/screen/ScreenHandlerListener;)V"))
     private void init(CallbackInfo ci) {
         Text text = Text.translatable("rci.button.openscreen");
-        ButtonWidget openRCI = new ButtonWidget(2, height - 22, client.textRenderer.getWidth(text) + 4, 20, text, button -> {
+        ButtonWidget openRCI = ButtonWidget.builder(text, button -> {
             MinecraftClient.getInstance().setScreen(new InventoryScreen());
-        });
+        }).dimensions(2, height - 22, client.textRenderer.getWidth(text) + 4, 20).build();
         addDrawableChild(openRCI);
     }
 

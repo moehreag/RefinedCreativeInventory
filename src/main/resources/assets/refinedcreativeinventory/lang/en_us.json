@@ -3,6 +3,7 @@
   "rci.optiontype.info.item": "Type a minecraft item here",
   "rci.button.vanilla": "Open Vanilla",
   "rci.button.settings": "Settings",
+  "rci.button.openscreen": "Open RCI",
   "rci.group.other": "Other",
   "rci.itemedit.add": "Save",
   "rci.itemedit.delete": "&cDelete",
@@ -11,6 +12,10 @@
   "rci.inventory.inventory": "Inventory",
   "rci.inventory.hotbar": "Hotbar",
 
+  "rci.option.overridevanilla": "Override Vanilla",
+  "rci.option.openrefinedscreen": "Open Refined Screen",
+  "rci.option.narrowitems": "Narrow Items",
+  "rci.option.persistentsearch": "Persistent Search",
   "rci.option.inventorysplit": "Always Display Inventory",
   "rci.option.info.inventorysplit": "Whether or not &6the survival inventory&r is always displayed on the right-hand side of the screen.\nWhen turned off, the survival inventory can still be accessed by clicking its dedicated tab",
   "rci.option.hotbarsplit": "Always Display Hotbar",

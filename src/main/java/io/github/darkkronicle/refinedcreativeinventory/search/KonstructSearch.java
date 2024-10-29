@@ -1,17 +1,17 @@
 package io.github.darkkronicle.refinedcreativeinventory.search;
 
-import io.github.darkkronicle.Konstruct.NodeException;
-import io.github.darkkronicle.Konstruct.functions.Function;
-import io.github.darkkronicle.Konstruct.functions.NamedFunction;
-import io.github.darkkronicle.Konstruct.functions.Variable;
-import io.github.darkkronicle.Konstruct.nodes.Node;
-import io.github.darkkronicle.Konstruct.nodes.RootNode;
-import io.github.darkkronicle.Konstruct.parser.IntRange;
-import io.github.darkkronicle.Konstruct.parser.NodeProcessor;
-import io.github.darkkronicle.Konstruct.parser.ParseContext;
-import io.github.darkkronicle.Konstruct.parser.Result;
-import io.github.darkkronicle.Konstruct.reader.builder.NodeBuilder;
-import io.github.darkkronicle.Konstruct.type.BooleanObject;
+import io.github.darkkronicle.konstruct.NodeException;
+import io.github.darkkronicle.konstruct.functions.Function;
+import io.github.darkkronicle.konstruct.functions.NamedFunction;
+import io.github.darkkronicle.konstruct.functions.Variable;
+import io.github.darkkronicle.konstruct.nodes.Node;
+import io.github.darkkronicle.konstruct.nodes.RootNode;
+import io.github.darkkronicle.konstruct.parser.IntRange;
+import io.github.darkkronicle.konstruct.parser.NodeProcessor;
+import io.github.darkkronicle.konstruct.parser.ParseContext;
+import io.github.darkkronicle.konstruct.parser.Result;
+import io.github.darkkronicle.konstruct.reader.builder.NodeBuilder;
+import io.github.darkkronicle.konstruct.type.BooleanObject;
 import io.github.darkkronicle.refinedcreativeinventory.items.InventoryItem;
 
 import java.util.ArrayList;

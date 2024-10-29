@@ -3,6 +3,8 @@ package io.github.darkkronicle.refinedcreativeinventory.tabs;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemGroups;
+import net.minecraft.registry.Registries;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,9 +29,9 @@ public class TabHolder {
 
     public void setVanilla() {
         int i = 0;
-        for (ItemGroup group : ItemGroup.GROUPS) {
+        for (ItemGroup group : ItemGroups.getGroupsToDisplay()) {
             i++;
-            if (group.equals(ItemGroup.HOTBAR) || group.equals(ItemGroup.SEARCH) || group.equals(ItemGroup.INVENTORY)) {
+            if (group.equals(Registries.ITEM_GROUP.get(ItemGroups.HOTBAR)) || group.equals(Registries.ITEM_GROUP.get(ItemGroups.SEARCH)) || group.equals(Registries.ITEM_GROUP.get(ItemGroups.INVENTORY))) {
                 continue;
             }
             addTab(CustomTab.fromGroup(group, i));

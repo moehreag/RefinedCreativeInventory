@@ -10,6 +10,7 @@ import io.github.darkkronicle.darkkore.util.render.RenderUtil;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.math.MatrixStack;
 
@@ -127,15 +128,15 @@ public class Radial extends MultiComponent {
     }
 
     @Override
-    public void renderComponent(MatrixStack matrices, PositionedRectangle renderBounds, int x, int y, int mouseX, int mouseY) {
+    public void renderComponent(DrawContext context, PositionedRectangle renderBounds, int x, int y, int mouseX, int mouseY) {
         if (circleBackgroundColor != null) {
-            RenderUtil.drawRing(matrices, x + trueRadius, y + trueRadius, trueRadius, trueRadius - thickness, circleBackgroundColor.color());
+            RenderUtil.drawRing(context, x + trueRadius, y + trueRadius, trueRadius, trueRadius - thickness, circleBackgroundColor.color());
         }
         int index = !isHovered() ? -1 : getNearestIndex(mouseX - x - trueRadius, mouseY - y - trueRadius);
         if (index == -1) {
-            super.renderComponent(matrices, renderBounds, x, y, mouseX, mouseY);
+            super.renderComponent(context, renderBounds, x, y, mouseX, mouseY);
         } else {
-            super.renderComponent(matrices, renderBounds, x, y, (int) getCompXPos(index) + 1 + x + trueRadius, (int) getCompYPos(index) + 1 + y + trueRadius);
+            super.renderComponent(context, renderBounds, x, y, (int) getCompXPos(index) + 1 + x + trueRadius, (int) getCompYPos(index) + 1 + y + trueRadius);
         }
     }
 
